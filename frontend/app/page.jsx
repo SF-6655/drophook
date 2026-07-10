@@ -1,14 +1,19 @@
-export default async function LandingPage() {
-  const BASE_URL = 'https://drophook-production.up.railway.app';
+'use client';
+import { useEffect, useState } from 'react';
 
-  let session = null;
-  try {
-    const res = await fetch(`${BASE_URL}/api/sessions`, {
-      method: 'POST',
-      cache: 'no-store',
-    });
-    if (res.ok) session = await res.json();
-  } catch {}
+const BASE_URL = 'https://drophook-production.up.railway.app';
+
+export default function LandingPage() {
+  const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/api/sessions`, { method: 'POST' })
+      .then(res => res.json())
+      .then(data => setSession(data))
+      .catch(() => setSession(null))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <main style={{
@@ -31,7 +36,15 @@ export default async function LandingPage() {
         </div>
       </div>
 
-      {session ? (
+      {loading ? (
+        <div style={{
+          background: '#13131a', border: '1px solid #1e1e2e',
+          borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '600px',
+          marginBottom: '40px', textAlign: 'center', color: '#6b6b8a',
+        }}>
+          Generating your inspector URL…
+        </div>
+      ) : session?.url ? (
         <div style={{
           background: '#13131a', border: '1px solid #1e1e2e',
           borderRadius: '16px', padding: '32px', width: '100%', maxWidth: '600px',
