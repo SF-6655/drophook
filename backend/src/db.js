@@ -1,18 +1,10 @@
 const { Pool } = require('pg');
-const dns = require('dns');
-
-// Force IPv4 DNS resolution globally
-dns.setDefaultResultOrder('ipv4first');
 
 const pool = new Pool({
-  host:     'db.slxexzbrdkvtlqaeubqx.supabase.co',
-  port:     5432,
-  database: 'postgres',
-  user:     'postgres',
-  password: 'drophook2026',
-  ssl:      { rejectUnauthorized: false },
-  max:      10,
-  idleTimeoutMillis:    30000,
+  connectionString: 'postgresql://postgres.slxexzbrdkvtlqaeubqx:drophook2026@aws-1-ap-northeast-2.pooler.supabase.com:5432/postgres',
+  ssl: { rejectUnauthorized: false },
+  max: 10,
+  idleTimeoutMillis:       30000,
   connectionTimeoutMillis: 5000,
 });
 
