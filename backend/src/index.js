@@ -9,6 +9,7 @@ const inspectRouter  = require('./routes/inspect');
 const requestsRouter = require('./routes/requests');
 
 const app    = express();
+app.set('trust proxy', 1);
 const server = http.createServer(app);
 const PORT   = process.env.PORT || 3001;
 
