@@ -4,9 +4,7 @@ const { Pool } = require('pg');
 // per query. Critical for performance with PostgreSQL on Supabase.
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production'
-    ? { rejectUnauthorized: false }
-    : false,
+  ssl: { rejectUnauthorized: false },
   max: 10,                // max connections in pool
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
