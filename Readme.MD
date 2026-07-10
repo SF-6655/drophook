@@ -6,6 +6,14 @@
 
 ![DropHook Inspector](https://img.shields.io/badge/status-live-22c55e?style=flat-square) ![Node.js](https://img.shields.io/badge/Node.js-Express-6c63ff?style=flat-square) ![Next.js](https://img.shields.io/badge/Frontend-Next.js%2014-black?style=flat-square) ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?style=flat-square) ![WebSockets](https://img.shields.io/badge/Realtime-WebSockets-f59e0b?style=flat-square)
 
+![DropHook Landing Page](./assets/landing.png)
+
+![Sending a webhook via curl](./assets/curl.png)
+
+![Live request in DropHook Inspector](./assets/inspector.png)
+
+---
+
 ---
 
 ## What is DropHook?
